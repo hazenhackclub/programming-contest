@@ -2,6 +2,7 @@ package challenge3;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /*
@@ -50,12 +51,12 @@ W W W W W W W W W W
 
 Example Output to Screen
 (1,1)
-(2,1)
+(2,1) --
 (1,5)
 (2,5)
 (1,6)
 (1,7)
-(1,8)
+(1,8) --
 
 @formatter:on
 */
@@ -91,25 +92,43 @@ public class Challenge3 {
 
 		print2dArray( housePosOccupied );
 
+		ArrayList<int[]> unknownLocations = new ArrayList<>( );
+
 		while( scan.hasNextLine( ) ) {
 			String input = scan.nextLine( );
 			input = input.substring( 1, input.length( ) - 1 );
 			String[] pos = input.split( "," );
-			housePosOccupied[Integer.parseInt( pos[1] )][Integer.parseInt( pos[0] )] = true;
+			int[] curPos = new int[] { Integer.parseInt( pos[0] ), Integer.parseInt( pos[1] ) };
+			housePosOccupied[curPos[1]][curPos[0]] = true;
+			unknownLocations.add( curPos );
 		}
 
 		print2dArray( housePosOccupied );
 
 		clean( housePosOccupied, robotStartPos );
 
-		for( int i = 1; i < housePosOccupied.length - 1; i++ ) {
-			for( int j = 1; j < housePosOccupied[0].length - 1; j++ )
+		for( int row = 1; row < housePosOccupied.length - 1; row++ ) {
+			for( int col = 1; col < housePosOccupied[0].length - 1; col++ )
 				// if not cleaned and not occupied print position
-				if( !cleaned[i][j] && !housePosOccupied[i][j] )
-					System.out.println( "(" + i + ", " + j + ")" );
+				if( ( !cleaned[row][col] && !housePosOccupied[row][col] )
+						|| arrayListContains( unknownLocations, new int[] { col, row } ) )
+					System.out.println( "(" + col + ", " + row + ")" );
 		}
 
 		print2dArray( cleaned );
+
+	}
+
+	public static boolean arrayListContains( ArrayList<int[]> input, int[] denom ) {
+		for( int i = 0; i < input.size( ); i++ ) {
+			for( int j = 0; j < input.get( i ).length; j++ ) {
+				if( input.get( i )[j] != denom[j] )
+					break;
+				if( j == input.get( i ).length - 1 )
+					return true;
+			}
+		}
+		return false;
 
 	}
 
