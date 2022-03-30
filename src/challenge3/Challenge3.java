@@ -16,10 +16,10 @@ where the walls, furniture and flooring are. When it cleans it will log location
 unexpected obstructions.
 
 Key:
- �W� - Wall
- �F� - Furniture
- �-� - Flooring
- �B� - Base
+ 'W' - Wall
+ 'F' - Furniture
+ '-' - Flooring
+ 'B' - Base
 
 Input
 The input will start with a 10 by 10 grid that describes the house with columns and rows
@@ -69,7 +69,7 @@ public class Challenge3 {
 	public static void main( String[] args ) {
 
 		try {
-			scan = new Scanner( new File( "../programming-contest/src/Challenges/challenge3/floor_cleaner-2.dat" ) );
+			scan = new Scanner( new File( "../programming-contest/src/challenge3/floor_cleaner.dat" ) );
 		} catch( FileNotFoundException e ) {
 			System.out.println( "File not found" );
 			System.exit( 0 );

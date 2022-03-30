@@ -22,7 +22,7 @@ public class Challenge4 {
 	public static void main( String[] args ) {
 
 		try {
-			scan = new Scanner( new File( "../programming-contest/src/Challenges/challenge4/____.dat" ) );
+			scan = new Scanner( new File( "../programming-contest/src/challenge4/____.dat" ) );
 		} catch( FileNotFoundException e ) {
 			System.out.println( "File not found" );
 			System.exit( 0 );

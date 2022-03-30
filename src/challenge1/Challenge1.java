@@ -41,7 +41,7 @@ public class Challenge1 {
 	public static void main( String[] args ) {
 
 		try {
-			scan = new Scanner( new File( "../programming-contest/src/Challenges/challenge1/scale.dat" ) );
+			scan = new Scanner( new File( "../programming-contest/src/challenge1/scale.dat" ) );
 		} catch( FileNotFoundException e ) {
 			System.out.println( "File not found" );
 			System.exit( 0 );

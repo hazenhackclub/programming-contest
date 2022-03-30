@@ -56,7 +56,7 @@ public class Challenge2 {
 	public static void main( String[] args ) {
 
 		try {
-			scan = new Scanner( new File( "../programming-contest/src/Challenges/challenge2/playtime-2.dat" ) );
+			scan = new Scanner( new File( "../programming-contest/src/challenge2/playtime-2.dat" ) );
 		} catch( FileNotFoundException e ) {
 			System.out.println( "File not found" );
 			System.exit( 0 );
