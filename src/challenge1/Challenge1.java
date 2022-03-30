@@ -1,4 +1,4 @@
-package src.challenges.challenge1;
+package challenge1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -34,14 +34,14 @@ Example Output to Screen
 @formatter:on
 */
 
-public class challenge1 {
+public class Challenge1 {
 
-	public static Scanner scan;
+	static Scanner scan;
 
-	public static void main( String args[] ) {
+	public static void main( String[] args ) {
 
 		try {
-			scan = new Scanner( new File( "../programming-contest/Challenges/challenge1/scale.dat" ) );
+			scan = new Scanner( new File( "../programming-contest/src/Challenges/challenge1/scale.dat" ) );
 		} catch( FileNotFoundException e ) {
 			System.out.println( "File not found" );
 			System.exit( 0 );

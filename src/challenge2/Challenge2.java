@@ -1,4 +1,4 @@
-package src.challenges.challenge2;
+package challenge2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,8 +15,8 @@ All your games track your time played in minutes. You have decided to create a p
 will convert the minutes into years, days, hours and minutes.
 
 Notes:
- Years will be treated as 365 days.
- Playtime will never be 0 minutes
+ Years will be treated as 365 days.
+ Playtime will never be 0 minutes
 
 Input
 The first line will contain the number of inputs that follow. Each input will consist of a game title
@@ -49,14 +49,14 @@ Xcom - 43 minute(s)
 @formatter:on
 */
 
-public class challenge2 {
+public class Challenge2 {
 
-	public static Scanner scan;
+	static Scanner scan;
 
-	public static void main( String args[] ) {
+	public static void main( String[] args ) {
 
 		try {
-			scan = new Scanner( new File( "../programming-contest/Challenges/challenge2/playtime-2.dat" ) );
+			scan = new Scanner( new File( "../programming-contest/src/Challenges/challenge2/playtime-2.dat" ) );
 		} catch( FileNotFoundException e ) {
 			System.out.println( "File not found" );
 			System.exit( 0 );
@@ -103,8 +103,6 @@ public class challenge2 {
 				output += minutes + " minute(s)";
 
 			System.out.println( output );
-
-			// System.out.println();
 
 		}
 	}

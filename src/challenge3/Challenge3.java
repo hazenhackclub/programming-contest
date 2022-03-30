@@ -1,4 +1,4 @@
-package src.challenges.challenge3;
+package challenge3;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,10 +16,10 @@ where the walls, furniture and flooring are. When it cleans it will log location
 unexpected obstructions.
 
 Key:
- ‘W’ – Wall
- ‘F’ – Furniture
- ‘-’ – Flooring
- ‘B’ – Base
+ �W� - Wall
+ �F� - Furniture
+ �-� - Flooring
+ �B� - Base
 
 Input
 The input will start with a 10 by 10 grid that describes the house with columns and rows
@@ -60,16 +60,16 @@ Example Output to Screen
 @formatter:on
 */
 
-public class challenge3 {
+public class Challenge3 {
 
 	static Scanner scan;
 
 	static boolean[][] cleaned = new boolean[10][10];
 
-	public static void main( String args[] ) {
+	public static void main( String[] args ) {
 
 		try {
-			scan = new Scanner( new File( "../programming-contest/Challenges/challenge3/floor_cleaner.dat" ) );
+			scan = new Scanner( new File( "../programming-contest/src/Challenges/challenge3/floor_cleaner-2.dat" ) );
 		} catch( FileNotFoundException e ) {
 			System.out.println( "File not found" );
 			System.exit( 0 );
@@ -89,7 +89,6 @@ public class challenge3 {
 			}
 		}
 
-		// System.out.println(robotStartPos[0] + ", " + robotStartPos[1]);
 		print2dArray( housePosOccupied );
 
 		while( scan.hasNextLine( ) ) {
@@ -97,9 +96,8 @@ public class challenge3 {
 			input = input.substring( 1, input.length( ) - 1 );
 			String[] pos = input.split( "," );
 			housePosOccupied[Integer.parseInt( pos[1] )][Integer.parseInt( pos[0] )] = true;
-			// System.out.println(pos[0] + ", " + pos[1]);
-
 		}
+
 		print2dArray( housePosOccupied );
 
 		clean( housePosOccupied, robotStartPos );
@@ -117,8 +115,7 @@ public class challenge3 {
 
 	/**
 	 * 
-	 * @param occupiedLayout array of the house where position is true if position
-	 *                       is occupied
+	 * @param occupiedLayout array of the house where position is true if position is occupied
 	 * @param curPos         current position on baord between 0 & 9 [column, row]
 	 */
 	public static void clean( boolean[][] occupiedLayout, int[] curPos ) {
