@@ -1,4 +1,4 @@
-package challange6;
+package ivan_pegs_ver2;
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
@@ -9,7 +9,7 @@ public class challange6_2020_PLU {
     public static  void main(String[] args){
 
         try {
-            File file = new File(".\\challange6\\challange6-ver2.dat");
+            File file = new File(".\\src\\ivan_pegs_ver2\\challange6-ver2.dat");
             scan = new Scanner(file);    
         } 
         catch (FileNotFoundException e) {
@@ -64,6 +64,7 @@ public class challange6_2020_PLU {
 
     }
     private static void solveThisBoard(Character[][] grid) {
+        //System.out.println();
         for(Character[] line: grid){
             for(Character char1: line){
                 //System.out.print(char1 + " ");
@@ -97,7 +98,6 @@ public class challange6_2020_PLU {
 
         if(num_of_pegs == 1){
             isSolvable = true;
-            //System.out.println("SOLVEABLE!");
         }
         //System.out.println("Num of pegs: " + num_of_pegs);
 
@@ -116,7 +116,6 @@ public class challange6_2020_PLU {
             }
             catch(IndexOutOfBoundsException e){
                 //System.out.println("ERROR: " + e);
-                continue;
             }
                 //check down
             try{
@@ -132,7 +131,6 @@ public class challange6_2020_PLU {
             }
             catch(IndexOutOfBoundsException e){
                 //System.out.println("ERROR: " + e);
-                continue;
             }
             try{
                 //check left
@@ -148,7 +146,6 @@ public class challange6_2020_PLU {
             }
             catch(IndexOutOfBoundsException e){
                 //System.out.println("ERROR: " + e);
-                continue;
             }
             try{
                 //check right
@@ -164,7 +161,6 @@ public class challange6_2020_PLU {
             }
             catch(IndexOutOfBoundsException e){
                 //System.out.println("ERROR: " + e);
-                continue;
                 }
             }         
     }
