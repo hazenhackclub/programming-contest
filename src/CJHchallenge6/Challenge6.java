@@ -21,27 +21,24 @@ public class Challenge6 {
 	public static void main( String[] args ) {
 
 		try {
-			scan = new Scanner( new File( "../programming-contest/src/challenge6/pegs-2.dat" ) );
+			scan = new Scanner( new File( "../programming-contest/src/CJHchallenge6/pegs.dat" ) );
 		} catch( FileNotFoundException e ) {
 			System.out.println( "File not found" );
 			System.exit( 0 );
 		}
 		
 		int boardCount = scan.nextInt();
-		
-		
 	
-		String[][] board = boardCreator();
-		printBoard(board);
-		
-		ArrayList<String> legalMoves = findLegalMoves(board);
-
-		for (int j = 0; j < legalMoves.size(); j++) {
-			System.out.println(legalMoves.get(j));
+		for (int i = 0; i < boardCount; i++) {
+			String[][] board = boardCreator();
+			
+			try {
+				String result = findIfBoardSolveable(board) ? "Solveable!" : "Impossible.";
+				System.out.println(result);
+			} catch (StackOverflowError e) {
+				System.out.println("recursive error");
+			}
 		}
-
-		findIfBoardSolveable(board,0);
-		
 	}
 
 	public static String[][] boardCreator() {
@@ -142,7 +139,7 @@ public class Challenge6 {
 	public static boolean boardSolved(String[][] board) {
 		int counter = 0;
 		for (int i = 0; i < board.length; i++) {
-			for (int j = 0; j < board.length; j++) {
+			for (int j = 0; j < board[i].length; j++) {
 				if (board[i][j].equals("@"))
 					counter++;
 			}
@@ -150,22 +147,35 @@ public class Challenge6 {
 		return counter == 1;
 	}
 
-	public static boolean findIfBoardSolveable(String[][] board, int counter) {
-		if (boardSolved(board) || counter == 100)
-			return true;
-		
-		String[][] temp = new String[board.length][];
+	public static boolean findIfBoardSolveable(String[][] board) {
+		String[][] temp = new String[board.length][board[0].length];
+
 		for(int i = 0; i < board.length; i++)
 			temp[i] = board[i].clone();
-		
-		ArrayList<String> moves = findLegalMoves(temp);
-	
 
-		printBoard(temp);
+		// printBoard(board);
+		ArrayList<String> moves = findLegalMoves(temp);
+		// for(String move : moves)
+		// 	System.out.println(move);
+	
+		if(moves.size() == 0) {
+			// if(boardSolved(temp)) {
+			// 	System.out.println("Board is Solved!");
+			// 	System.out.println("---------------");
+			// 	return true;
+			// }
+			// else {
+			// 	System.out.println("Board is not Solved.");
+			// 	System.out.println("---------------");
+			// 	return false;
+			// }
+			return boardSolved(temp);
+		}
 		for (int i = 0; i < moves.size(); i++) {
+			// System.out.println("\nMove executed " + moves.get(i));
 			executeMove(temp, moves.get(i));
-			printBoard(temp);
-			return findIfBoardSolveable(temp, counter + 1);
+			if(findIfBoardSolveable(temp))
+				return true;
 		}
 		return false;
 	}
