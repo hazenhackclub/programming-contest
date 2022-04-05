@@ -2,11 +2,8 @@ package challenge5;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.invoke.VolatileCallSite;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 
 /*
 @formatter:off
