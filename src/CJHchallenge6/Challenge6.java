@@ -3,6 +3,7 @@ package CJHchallenge6;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.ResourceBundle.Control;
 import java.util.ArrayList;
 
 /*
@@ -31,9 +32,9 @@ public class Challenge6 {
 	
 		for (int i = 0; i < boardCount; i++) {
 			String[][] board = boardCreator();
-			
+
 			try {
-				String result = findIfBoardSolveable(board) ? "Solveable!" : "Impossible.";
+				String result = findIfBoardSolveable(board,0) ? "Solvable!" : "Impossible.";
 				System.out.println(result);
 			} catch (StackOverflowError e) {
 				System.out.println("recursive error");
@@ -80,40 +81,47 @@ public class Challenge6 {
 			for (int j = 0; j < board[i].length; j++) {
 				if (board[i][j].equals("@")) {
 					// checking up
-					if(i-2 >= 0) {
+					try {
 						if (board[i-1][j].equals("@") & board[i-2][j].equals("."))
 							legalMoves.add(i + "," + j + " -> " + (i-2) + "," + (j));
-					}
+					} catch(IndexOutOfBoundsException e) {}
 					// checking right
-					if(j+2 < board.length) {
+					try {
 						if (board[i][j+1].equals("@") & board[i][j+2].equals("."))
 							legalMoves.add(i + "," + j + " -> " + (i) + "," + (j+2));
-					}
+					} catch(IndexOutOfBoundsException e) {}
 					// checking down
-					if(i+2 < board.length) {
+					try {
 						if (board[i+1][j].equals("@") & board[i+2][j].equals(".")) 
 							legalMoves.add(i + "," + j + " -> " + (i+2) + "," + (j));
-					}
+					} catch(IndexOutOfBoundsException e) {}
 					// checking left
-					if(j-2 >= 0) {
+					try {
 						if (board[i][j-1].equals("@") & board[i][j-2].equals("."))
 							legalMoves.add(i + "," + j + " -> " + (i) + "," + (j-2));
-					}
+					} catch(IndexOutOfBoundsException e) {}
 				}
 			}
 		}
 		return legalMoves;
 	}
 	
-	public static void executeMove(String[][] board, String move) {
-		int initialX = Integer.parseInt(move.substring(0,1));
-		int initialY = Integer.parseInt(move.substring(2,3));
-		int newX = Integer.parseInt(move.substring(7,8));
-		int newY = Integer.parseInt(move.substring(9,10));
+	public static String[][] executeMove(String[][] board, String move) {
+		String[][] temp = new String[board.length][];
 
-		board[initialX][initialY] = ".";
-		board[(initialX+newX)/2][(initialY+newY)/2] = ".";
-		board[newX][newY] = "@";
+		for(int i = 0; i < board.length; i++)
+			temp[i] = board[i].clone();
+		
+		int initialRow = Integer.parseInt(move.substring(0,1));
+		int initialCol = Integer.parseInt(move.substring(2,3));
+		int newRow = Integer.parseInt(move.substring(7,8));
+		int newCol = Integer.parseInt(move.substring(9,10));
+
+		temp[initialRow][initialCol] = ".";
+		temp[(initialRow+newRow)/2][(initialCol+newCol)/2] = ".";
+		temp[newRow][newCol] = "@";
+
+		return temp;
 	}
 
 	public static boolean boardSolved(String[][] board) {
@@ -127,16 +135,18 @@ public class Challenge6 {
 		return counter == 1;
 	}
 
-	public static boolean findIfBoardSolveable(String[][] board) {
-		String[][] temp = new String[board.length][board[0].length];
+	public static boolean findIfBoardSolveable(String[][] board, int levelsDeep) {
+		String[][] temp = new String[board.length][];
 
 		for(int i = 0; i < board.length; i++)
 			temp[i] = board[i].clone();
 
+		// System.out.println("Levels Deep:" + levelsDeep);
 		// printBoard(board);
 		ArrayList<String> moves = findLegalMoves(temp);
+		// System.out.println("Move List:");
 		// for(String move : moves)
-		// 	System.out.println(move);
+		// 	System.out.println("    " + move);
 	
 		if(moves.size() == 0) {
 			// if(boardSolved(temp)) {
@@ -152,9 +162,10 @@ public class Challenge6 {
 			return boardSolved(temp);
 		}
 		for (int i = 0; i < moves.size(); i++) {
+			// System.out.println("Before Board:");
+			// printBoard(temp);
 			// System.out.println("\nMove executed " + moves.get(i));
-			executeMove(temp, moves.get(i));
-			if(findIfBoardSolveable(temp))
+			if(findIfBoardSolveable(executeMove(temp, moves.get(i)), levelsDeep + 1))
 				return true;
 		}
 		return false;
