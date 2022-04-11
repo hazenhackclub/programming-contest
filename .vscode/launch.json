@@ -1,0 +1,49 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "java",
+			"name": "Launch Current File",
+			"request": "launch",
+			"mainClass": "${file}"
+		},
+		{
+			"type": "java",
+			"name": "Launch Challenge1",
+			"request": "launch",
+			"mainClass": "challenge1.Challenge1",
+			"projectName": "programming-contest"
+		},
+		{
+			"type": "java",
+			"name": "Launch Challenge2",
+			"request": "launch",
+			"mainClass": "challenge2.Challenge2",
+			"projectName": "programming-contest"
+		},
+		{
+			"type": "java",
+			"name": "Launch Challenge3",
+			"request": "launch",
+			"mainClass": "challenge3.Challenge3",
+			"projectName": "programming-contest"
+		},
+		{
+			"type": "java",
+			"name": "Launch challange3_2020_PLU_ver2",
+			"request": "launch",
+			"mainClass": "challenge3.challange3_2020_PLU_ver2",
+			"projectName": "programming-contest"
+		},
+		{
+			"type": "java",
+			"name": "Launch FeedStore",
+			"request": "launch",
+			"mainClass": "challenge4.FeedStore",
+			"projectName": "programming-contest"
+		}
+	]
+}
