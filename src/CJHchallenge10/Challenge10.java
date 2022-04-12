@@ -58,14 +58,15 @@ public class Challenge10 {
 		System.out.println();
 	}
 
-	public static findMoves name(String[][] board) {
+	public static String[][] findMoves(String[][] board) {
 		int posX, posY;
 
 		for (int i = 0; i < board.length; i++) {
 			for (int j = 0; j < board[i].length; j++) {
-				if (board[i][j] == " ")
+				
 			}
 		}
+		return new String[][]{};
 	}
 }
 
