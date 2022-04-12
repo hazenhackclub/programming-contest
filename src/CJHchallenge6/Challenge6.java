@@ -37,6 +37,7 @@ public class Challenge6 {
 				String result = findIfBoardSolveable(board,0) ? "Solvable!" : "Impossible.";
 				System.out.println(result);
 			} catch (StackOverflowError e) {
+				System.out.println(e);
 				System.out.println("recursive error");
 			}
 		}
