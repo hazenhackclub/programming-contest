@@ -1,4 +1,4 @@
-package challenge4;
+package plu2019.challenge4;
 
 import java.io.BufferedReader;
 import java.io.CharArrayReader;

@@ -1,4 +1,4 @@
-package CJHchallenge10;
+package plu2019.CJHchallenge10;
 
 import java.io.File;
 import java.io.FileNotFoundException;

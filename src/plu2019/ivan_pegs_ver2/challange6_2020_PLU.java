@@ -1,4 +1,4 @@
-package ivan_pegs_ver2;
+package plu2019.ivan_pegs_ver2;
 
 import java.io.File; // Import the File class
 import java.io.FileNotFoundException; // Import this class to handle errors

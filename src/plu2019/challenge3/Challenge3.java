@@ -1,4 +1,4 @@
-package challenge3;
+package plu2019.challenge3;
 
 import java.io.File;
 import java.io.FileNotFoundException;
