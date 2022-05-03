@@ -6,6 +6,13 @@
 	"configurations": [
 		{
 			"type": "java",
+			"name": "Launch Challenge6",
+			"request": "launch",
+			"mainClass": "CJHchallenge6.Challenge6",
+			"projectName": "programming-contest"
+		},
+		{
+			"type": "java",
 			"name": "Launch Current File",
 			"request": "launch",
 			"mainClass": "${file}"
