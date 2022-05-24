@@ -12,6 +12,7 @@
 			"projectName": "programming-contest"
 		},
 		{
+			"type": "java",
 			"name": "Launch challenge06",
 			"request": "launch",
 			"mainClass": "CjPLU2019.challenge6.challenge06",
