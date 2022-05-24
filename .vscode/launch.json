@@ -12,6 +12,61 @@
 			"projectName": "programming-contest"
 		},
 		{
+			"name": "Launch challenge06",
+			"request": "launch",
+			"mainClass": "CjPLU2019.challenge6.challenge06",
+			"projectName": "programming-contest"
+		},
+		{
+			"type": "java",
+			"name": "Launch challenge05",
+			"request": "launch",
+			"mainClass": "CjPLU2019.challenge5.challenge05",
+			"projectName": "programming-contest"
+		},
+		{
+			"type": "java",
+			"name": "Launch challenge04",
+			"request": "launch",
+			"mainClass": "CjPLU2019.challenge5.challenge04",
+			"projectName": "programming-contest"
+		},
+		{
+			"type": "java",
+			"name": "Launch challenge04",
+			"request": "launch",
+			"mainClass": "CjPLU2019.challenge4.challenge04",
+			"projectName": "programming-contest"
+		},
+		{
+			"type": "java",
+			"name": "Launch challenge03",
+			"request": "launch",
+			"mainClass": "CjPLU2019.challenge3.challenge03",
+			"projectName": "programming-contest"
+		},
+		{
+			"type": "java",
+			"name": "Launch challenge02",
+			"request": "launch",
+			"mainClass": "CjPLU2019.challenge3.challenge02",
+			"projectName": "programming-contest"
+		},
+		{
+			"type": "java",
+			"name": "Launch challenge02",
+			"request": "launch",
+			"mainClass": "CjPLU2019.challenge2.challenge02",
+			"projectName": "programming-contest"
+		},
+		{
+			"type": "java",
+			"name": "Launch challenge01",
+			"request": "launch",
+			"mainClass": "CjPLU2019.challenge1.challenge01",
+			"projectName": "programming-contest"
+		},
+		{
 			"type": "java",
 			"name": "Launch Challenge6",
 			"request": "launch",
