@@ -6,6 +6,13 @@
 	"configurations": [
 		{
 			"type": "java",
+			"name": "Launch Clothes",
+			"request": "launch",
+			"mainClass": "plu2019.challenge01.Clothes",
+			"projectName": "programming-contest"
+		},
+		{
+			"type": "java",
 			"name": "Launch Challenge6",
 			"request": "launch",
 			"mainClass": "CJHchallenge6.Challenge6",
