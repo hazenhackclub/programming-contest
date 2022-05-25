@@ -102,12 +102,12 @@ public class Seasons {
 
 	}
 
-	public static int monthTranslator( String month ) {
-		month = month.toLowerCase( ).substring( 0, 3 );
-		return monthNames.indexOf( month );
-	}
+	// public static int monthTranslator( String month ) {
+	// 	month = month.toLowerCase( ).substring( 0, 3 );
+	// 	return monthNames.indexOf( month );
+	// }
 
-	public static String monthTranslator( int month ) {
-		return monthNames.get( month );
-	}
+	// public static String monthTranslator( int month ) {
+	// 	return monthNames.get( month );
+	// }
 }
