@@ -52,7 +52,13 @@ E exit location.
 
 public class Bomb {
 
+	enum MazePos {
+		VISITED, NOT_VISITED
+	};
+
 	static Scanner scan;
+
+	static int minBombs = 0;
 
 	public static void main( String[] args ) {
 
@@ -86,48 +92,66 @@ public class Bomb {
 
 			System.out.println( getMinBombs( maze, startPos ) );
 
+			byte test = 0;
+
 		}
 
 	}
 
+	public static boolean[][][] clone( boolean[][][] oldArray ) {
+		boolean[][][] newArray = new boolean[oldArray.length][oldArray[0].length][oldArray[0][0].length];
+
+		for( int i = 0; i < oldArray.length; i++ )
+			for( int j = 0; j < oldArray[0].length; j++ )
+				for( int k = 0; k < oldArray[0][0].length; k++ )
+					newArray[i][j][k] = oldArray[i][j][k];
+					
+		return newArray;
+	}
+
 	public static int getMinBombs( char[][][] maze, Position startPos ) {
+		minBombs = Integer.MAX_VALUE;
 		return getMinBombs( maze, new boolean[maze.length][maze[0].length][maze[0][0].length], startPos, 0 );
 	}
 
 	public static int getMinBombs( char[][][] maze, boolean[][][] visitedPositions, Position pos, int bombsUsed ) {
 
-		visitedPositions[pos.f][pos.r][pos.c - 1] = true;
-		
-		if( maze[pos.f][pos.r][pos.c] == 'E' )
-			return bombsUsed;
-		if( pos.c - 1 >= 0 && !visitedPositions[pos.f][pos.r][pos.c - 1] ) { // move up
-			if( maze[pos.f][pos.r][pos.c - 1] == '#' )
-				bombsUsed++;
-			pos.c--;
+		if( bombsUsed < minBombs ) {
+			visitedPositions[pos.f][pos.r][pos.c] = true;
 
-			return getMinBombs( maze, visitedPositions, pos, bombsUsed );
+			if( maze[pos.f][pos.r][pos.c] == 'E' )
+				minBombs = bombsUsed;
+
+			else {
+
+				if( pos.r - 1 >= 0 && !visitedPositions[pos.f][pos.r - 1][pos.c] ) // move up
+					getMinBombs( maze, clone( visitedPositions ), pos.copyR( pos.r - 1 ),
+							bombsUsed + ( maze[pos.f][pos.r - 1][pos.c] == '#' ? 1 : 0 ) );
+
+				if( pos.r + 1 < maze[0].length && !visitedPositions[pos.f][pos.r + 1][pos.c] ) // move down
+					getMinBombs( maze, clone( visitedPositions ), pos.copyR( pos.r + 1 ),
+							bombsUsed + ( maze[pos.f][pos.r + 1][pos.c] == '#' ? 1 : 0 ) );
+
+				if( pos.c - 1 >= 0 && !visitedPositions[pos.f][pos.r][pos.c - 1] ) // move left
+					getMinBombs( maze, clone( visitedPositions ), pos.copyC( pos.c - 1 ),
+							bombsUsed + ( maze[pos.f][pos.r][pos.c - 1] == '#' ? 1 : 0 ) );
+
+				if( pos.c + 1 < maze[0][0].length && !visitedPositions[pos.f][pos.r][pos.c + 1] ) // move right
+					getMinBombs( maze, clone( visitedPositions ), pos.copyC( pos.c + 1 ),
+							bombsUsed + ( maze[pos.f][pos.r][pos.c + 1] == '#' ? 1 : 0 ) );
+
+				if( pos.f + 1 < maze.length && !visitedPositions[pos.f + 1][pos.r][pos.c] ) // move forward
+					getMinBombs( maze, clone( visitedPositions ), pos.copyF( pos.f + 1 ),
+							bombsUsed + ( maze[pos.f + 1][pos.r][pos.c] == '#' ? 1 : 0 ) );
+
+				if( pos.f - 1 >= 0 && !visitedPositions[pos.f - 1][pos.r][pos.c] ) // move backward
+					getMinBombs( maze, clone( visitedPositions ), pos.copyF( pos.f - 1 ),
+							bombsUsed + ( maze[pos.f - 1][pos.r][pos.c] == '#' ? 1 : 0 ) );
+			}
+
 		}
-		if( pos.c + 1 < maze[0][0].length && !visitedPositions[pos.f][pos.r][pos.c + 1] ) { // move down
 
-			return getMinBombs( maze, visitedPositions, pos, bombsUsed );
-		}
-		if( pos.r - 1 >= 0 && !visitedPositions[pos.f][pos.r - 1][pos.c] ) { // left
-
-			return getMinBombs( maze, visitedPositions, pos, bombsUsed );
-		}
-		if( pos.r + 1 < maze[0].length && !visitedPositions[pos.f][pos.r + 1][pos.c] ) { // right
-
-			return getMinBombs( maze, visitedPositions, pos, bombsUsed );
-		}
-		if( pos.f + 1 < maze.length && !visitedPositions[pos.f + 1][pos.r][pos.c] ) { // forward
-
-			return getMinBombs( maze, visitedPositions, pos, bombsUsed );
-		}
-		if( pos.f - 1 <= 0 && !visitedPositions[pos.f - 1][pos.r][pos.c] ) { // backward
-
-			return getMinBombs( maze, visitedPositions, pos, bombsUsed );
-		} else
-			return bombsUsed;
+		return minBombs;
 	}
 
 }
@@ -141,5 +165,17 @@ class Position {
 		this.f = f;
 		this.r = r;
 		this.c = c;
+	}
+
+	Position copyF( int f ) {
+		return new Position( f, this.r, this.c );
+	}
+
+	Position copyR( int r ) {
+		return new Position( this.f, r, this.c );
+	}
+
+	Position copyC( int c ) {
+		return new Position( this.f, this.r, c );
 	}
 }

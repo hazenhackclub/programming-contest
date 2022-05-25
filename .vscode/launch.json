@@ -6,9 +6,9 @@
 	"configurations": [
 		{
 			"type": "java",
-			"name": "Launch Clothes",
+			"name": "Launch Bomb",
 			"request": "launch",
-			"mainClass": "plu2019.challenge01.Clothes",
+			"mainClass": "plu2018.challenge11.Bomb",
 			"projectName": "programming-contest"
 		},
 		{
