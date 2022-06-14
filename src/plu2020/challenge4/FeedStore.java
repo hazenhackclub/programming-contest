@@ -115,11 +115,9 @@ public class FeedStore {
 
 		findRoutes( farms, truckCapacity );
 
-		for( String route : allPossibleRoutes.keySet( ) ) {
-			String key = route.toString( );
-			String value = allPossibleRoutes.get( route ).toString( );
-			System.out.println( "(" + value + ") - " + key );
-		}
+		for( String route : allPossibleRoutes.keySet( ) )
+			System.out.println( "(" + allPossibleRoutes.get( route ).toString( ) + ") - " + route );
+		
 
 	}
 

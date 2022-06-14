@@ -1,7 +1,5 @@
 package CjPLU2019.challenge4;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;

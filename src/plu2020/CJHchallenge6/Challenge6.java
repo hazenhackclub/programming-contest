@@ -51,7 +51,7 @@ public class Challenge6 {
 		String[][] board = new String[arrayRows][arrayCols];
 
 		for (int i = 0; i < board.length; i++) {
-			String[] row = scan.nextLine().replaceAll(" ", "").split("");
+			String[] row = scan.nextLine().replace(" ", "").split("");
 
 			int nullSpotsPerSide = (arrayRows - row.length) / 2;
 
@@ -149,7 +149,7 @@ public class Challenge6 {
 		// for(String move : moves)
 		// 	System.out.println("    " + move);
 	
-		if(moves.size() == 0) {
+		if(moves.isEmpty()) {
 			// if(boardSolved(temp)) {
 			// 	System.out.println("Board is Solved!");
 			// 	System.out.println("---------------");

@@ -1,13 +1,11 @@
 package CjPLU2019.challenge5;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class challenge05 {
+public class Challenge05 {
 
     public static Scanner scan;
     public static void main(String[] args) {
