@@ -91,9 +91,6 @@ public class Bomb {
 							startPos = new Position( curLayer, curRow, curCol );
 
 			System.out.println( getMinBombs( maze, startPos ) );
-
-			byte test = 0;
-
 		}
 
 	}
