@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class Challenge05 {
+public class challenge05 {
 
     public static Scanner scan;
     public static void main(String[] args) {
