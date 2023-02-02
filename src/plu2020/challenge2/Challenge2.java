@@ -53,27 +53,27 @@ public class Challenge2 {
 
 	static Scanner scan;
 
-	public static void main( String[] args ) {
+	public static void main(String[] args) {
 
 		try {
-			scan = new Scanner( new File( "../programming-contest/src/challenge2/playtime-2.dat" ) );
-		} catch( FileNotFoundException e ) {
-			System.out.println( "File not found" );
-			System.exit( 0 );
+			scan = new Scanner(new File("../programming-contest/src/challenge2/playtime-2.dat"));
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found");
+			System.exit(0);
 		}
 
-		while( scan.hasNextLine( ) ) {
+		while (scan.hasNextLine()) {
 
-			String inputLine = scan.nextLine( );
+			String inputLine = scan.nextLine();
 
-			String[] inputArray = inputLine.split( "," );
+			String[] inputArray = inputLine.split(",");
 
-			if( inputArray.length < 2 )
+			if (inputArray.length < 2)
 				continue;
 
-			System.out.print( inputArray[0] + " - " );
+			System.out.print(inputArray[0] + " - ");
 
-			int minutes = Integer.parseInt( inputArray[1] );
+			int minutes = Integer.parseInt(inputArray[1]);
 
 			// get time data here:
 			int years = minutes / 525600; // 365
@@ -90,19 +90,19 @@ public class Challenge2 {
 
 			String output = "";
 
-			if( years != 0 )
+			if (years != 0)
 				output += years + " year(s) ";
 
-			if( days != 0 )
+			if (days != 0)
 				output += days + " day(s) ";
 
-			if( hours != 0 )
+			if (hours != 0)
 				output += hours + " hour(s) ";
 
-			if( minutes != 0 )
+			if (minutes != 0)
 				output += minutes + " minute(s)";
 
-			System.out.println( output );
+			System.out.println(output);
 
 		}
 	}

@@ -1,0 +1,2 @@
+if you have a folder open: ../open-folder/path/to/file/file-name.ext
+if you have the folder with the java file and txt file: file-name.txt
