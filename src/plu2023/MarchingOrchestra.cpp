@@ -70,16 +70,6 @@ bool canMove(pair<int, int> pos, Dir direction, vector< vector<char> > map, vect
 			&& !visited[newPos.first][newPos.second];
 }
 
-
-
-// vector< vector<bool> > clone( vector< vector<bool> > clone ) {
-
-// 	vector< vector<bool> > dest[clone.size()];
-// 	// std::copy(clone, clone + clone.size(), back_inserter(dest));
-// 	std::copy(clone.begin(), clone.end(), back_inserter(dest));
-// 	return dest;
-// }
-
 int findShortestPath( pair<int, int> pos, pair<int, int> des, vector< vector<char> > map, vector< vector<bool> > visited, int length ) {
 
 	if( pos.first == des.first && pos.second == des.second )
