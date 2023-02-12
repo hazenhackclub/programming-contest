@@ -5,47 +5,34 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"name": "(gdb) Launch",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${fileDirname}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "gdb",
+			"miDebuggerPath": "/msys64/mingw64/bin/gdb.exe",
+			"preLaunchTask": "C/C++: g++.exe build active file",
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				},
+				{
+					"description": "Set Disassembly Flavor to Intel",
+					"text": "-gdb-set disassembly-flavor intel",
+					"ignoreFailures": true
+				}
+			]
+		},
+		{
 			"type": "java",
-<<<<<<< Updated upstream
 			"name": "Launch Bomb",
-=======
-			"name": "Launch Family",
-			"request": "launch",
-			"mainClass": "plu2018.challenge08.Family",
-			"projectName": "programming-contest"
-		},
-		{
-			"type": "java",
-			"name": "Launch Ornaments",
-			"request": "launch",
-			"mainClass": "plu2018.challenge07.Ornaments",
-			"projectName": "programming-contest"
-		},
-		{
-			"type": "java",
-			"name": "Launch Holes",
-			"request": "launch",
-			"mainClass": "plu2018.challenge06.Holes",
-			"projectName": "programming-contest"
-		},
-		{
-			"type": "java",
-			"name": "Launch Challenge05",
-			"request": "launch",
-			"mainClass": "plu2018.challenge05.Challenge05",
-			"projectName": "programming-contest"
-		},
-		{
-			"type": "java",
-			"name": "Launch Seasons",
-			"request": "launch",
-			"mainClass": "plu2019.challenge07.Seasons",
-			"projectName": "programming-contest"
-		},
-		{
-			"type": "java",
-			"name": "Launch Clothes",
->>>>>>> Stashed changes
 			"request": "launch",
 			"mainClass": "plu2018.challenge11.Bomb",
 			"projectName": "programming-contest"
